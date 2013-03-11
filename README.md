@@ -15,9 +15,11 @@ Screenshot:
 
 Usage in a template after installation:
 
+```
     {% load emoji_tags %}
     
     {{ post.body|emoji }}
+```
 
 Other small and simple JavaScript enhancement added automatically:
 
@@ -30,13 +32,16 @@ Other small and simple JavaScript enhancement added automatically:
 1. Place `adminplus` directory on Python path
 2. Add `adminplus` to `settings.py`'s `INSTALLED_APPS` tuple.
 
+```
     INSTALLED_APPS = {
         # ...
         'adminplus',
     }
+```
 
 3. Append `class Media` parts to admin classes in each of your app's `admin.py`. Example:
 
+```
     from django.contrib import admin
     from ... import Post
 
@@ -48,16 +53,22 @@ Other small and simple JavaScript enhancement added automatically:
             css = {
                 'all': ('adminplus/css/style.css',)
             }
-            js = ('adminplus/js/jquery.min.js', 'adminplus/js/jquery.markitup.js', 'adminplus/js/jquery.adminplus.js',)
+            js = ('adminplus/js/jquery.min.js', 
+                  'adminplus/js/jquery.markitup.js', 
+                  'adminplus/js/jquery.adminplus.js',
+            )
 
     admin.site.register(Post, PostAdmin)
+```
 
 Note: The above is cleaner but a little more work because each app's `class Media` in `admin.py` has to be declared. This includes adding an additional flatpages app (with corresponding `admin.py`) if you want the enhancements to the flatpages app, plus adding that new flatpages app to your `INSTALLED_APPS`.
 
 You could instead hijack the admin templates and stick the HTML calls to the media there. This would actually be required for adding additional WYSIWYGs to textareas not called `body` or `content`.
 
+```
     # Template
     # /path/to/your/templates/admin/change_form.html
+
     {% extends "admin/change_form.html" %}
 
     {% block extrahead %}
@@ -80,6 +91,7 @@ You could instead hijack the admin templates and stick the HTML calls to the med
         </script>
         
     {% endblock %}
+```
 
 More at [https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates).
 
