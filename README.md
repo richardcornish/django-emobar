@@ -16,9 +16,9 @@ Screenshot:
 Usage in a template after installation:
 
 ```
-    {% load emoji_tags %}
-    
-    {{ post.body|emoji }}
+{% load emoji_tags %}
+
+{{ post.body|emoji }}
 ```
 
 Other small and simple JavaScript enhancement added automatically:
@@ -33,32 +33,32 @@ Other small and simple JavaScript enhancement added automatically:
 2. Add `adminplus` to `settings.py`'s `INSTALLED_APPS` tuple.
 
 ```
-    INSTALLED_APPS = {
-        # ...
-        'adminplus',
-    }
+INSTALLED_APPS = {
+    # ...
+    'adminplus',
+}
 ```
 
-3. Append `class Media` parts to admin classes in each of your app's `admin.py`. Example:
+3. Append `class Media` parts to admin classes in each of your apps' `admin.py`. Example:
 
 ```
-    from django.contrib import admin
-    from ... import Post
+from django.contrib import admin
+from ... import Post
 
-    class PostAdmin(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin):
 
-        # ...
+    # ...
 
-        class Media:
-            css = {
-                'all': ('adminplus/css/style.css',)
-            }
-            js = ('adminplus/js/jquery.min.js', 
-                  'adminplus/js/jquery.markitup.js', 
-                  'adminplus/js/jquery.adminplus.js',
-            )
+    class Media:
+        css = {
+            'all': ('adminplus/css/style.css',)
+        }
+        js = ('adminplus/js/jquery.min.js', 
+              'adminplus/js/jquery.markitup.js', 
+              'adminplus/js/jquery.adminplus.js',
+        )
 
-    admin.site.register(Post, PostAdmin)
+admin.site.register(Post, PostAdmin)
 ```
 
 Note: The above is cleaner but a little more work because each app's `class Media` in `admin.py` has to be declared. This includes adding an additional flatpages app (with corresponding `admin.py`) if you want the enhancements to the flatpages app, plus adding that new flatpages app to your `INSTALLED_APPS`.
@@ -66,34 +66,37 @@ Note: The above is cleaner but a little more work because each app's `class Medi
 You could instead hijack the admin templates and stick the HTML calls to the media there. This would actually be required for adding additional WYSIWYGs to textareas not called `body` or `content`.
 
 ```
-    # Template
-    # /path/to/your/templates/admin/change_form.html
+# Template
+# /path/to/your/templates/admin/change_form.html
 
-    {% extends "admin/change_form.html" %}
+{% extends "admin/change_form.html" %}
 
-    {% block extrahead %}
-        {{ block.super }}
-        
-        {% load adminmedia %}
-        
-        {# If you already use `class Media`, `load adminmedia` will load these below, so might not be needed #}
-        <link rel="stylesheet" href="{{ STATIC_URL }}adminplus/css/style.css">
-        <script src="{{ STATIC_URL }}adminplus/js/jquery.min.js"></script>
-        <script src="{{ STATIC_URL }}adminplus/js/jquery.markitup.js"></script>
-        <script src="{{ STATIC_URL }}adminplus/js/jquery.adminplus.js"></script>
-        
-        {# To target an additional textarea: #}
-        <script>
-            jQuery(function () {
-                'use strict';
-                ADMIN_PLUS.addMarkItUp('#id_then_name_of_field_in_model');
-            });
-        </script>
-        
-    {% endblock %}
+{% block extrahead %}
+    {{ block.super }}
+    
+    {% load adminmedia %}
+    
+    {# If you already use `class Media`, `load adminmedia` will load these below, so might not be needed #}
+    <link rel="stylesheet" href="{{ STATIC_URL }}adminplus/css/style.css">
+    <script src="{{ STATIC_URL }}adminplus/js/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}adminplus/js/jquery.markitup.js"></script>
+    <script src="{{ STATIC_URL }}adminplus/js/jquery.adminplus.js"></script>
+    
+    {# To target an additional textarea: #}
+    <script>
+        jQuery(function () {
+            'use strict';
+            ADMIN_PLUS.addMarkItUp('#id_then_name_of_field_in_model');
+        });
+    </script>
+    
+{% endblock %}
 ```
 
-More at [https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates).
+More at:
+
+- [`ModelAdmin` media definitions](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#modeladmin-media-definitions)
+- [Overriding admin templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates)
 
 4. Run `python manage.py collectstatic` in the correct django project directory.
 
