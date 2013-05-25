@@ -30,6 +30,7 @@ Other small and simple JavaScript enhancement added automatically:
 ## Installation
 
 Place `adminplus` directory on Python path
+
 Add `adminplus` to `settings.py`'s `INSTALLED_APPS` tuple.
 
 ```
