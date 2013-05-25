@@ -29,8 +29,8 @@ Other small and simple JavaScript enhancement added automatically:
 
 ## Installation
 
-1. Place `adminplus` directory on Python path
-2. Add `adminplus` to `settings.py`'s `INSTALLED_APPS` tuple.
+Place `adminplus` directory on Python path
+Add `adminplus` to `settings.py`'s `INSTALLED_APPS` tuple.
 
 ```
 INSTALLED_APPS = {
@@ -39,7 +39,7 @@ INSTALLED_APPS = {
 }
 ```
 
-3. Append `class Media` parts to admin classes in each of your apps' `admin.py`. Example:
+Append `class Media` parts to admin classes in each of your apps' `admin.py`. Example:
 
 ```
 from django.contrib import admin
@@ -98,9 +98,9 @@ More at:
 - [`ModelAdmin` media definitions](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#modeladmin-media-definitions)
 - [Overriding admin templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates)
 
-4. Run `python manage.py collectstatic` in the correct django project directory.
+Run `python manage.py collectstatic` in the correct django project directory.
 
-5. Restart the server as necessary.
+Restart the server as necessary.
 
 
 ## What else?
