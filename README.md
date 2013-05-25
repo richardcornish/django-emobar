@@ -18,7 +18,7 @@ Usage in a template after installation:
 ```
 {% load emoji_tags %}
 
-{{ post.body|emoji }}
+{{ object.body|emoji }}
 ```
 
 Other small and simple JavaScript enhancement added automatically:
