@@ -920,9 +920,9 @@ AdminPlus = (function ($) {
 
     };
 
-}(jQuery));
+}(django.jQuery));
 
-jQuery(function () {
+django.jQuery(function () {
     'use strict';
     AdminPlus.init();
 });
