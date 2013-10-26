@@ -896,23 +896,8 @@ AdminPlus = (function ($) {
 
         // Add MarkItUp WYSIWYG to textareas
         addMarkItUp: function (textarea_el) {
-
             if (textarea_el) {
-
-                // Create a new template on a per-model basis, as specified:
-                // https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates
                 $(textarea_el).markItUp(miu_settings);
-
-            } else if ($('#id_content').length) {
-
-                // #id_content is for flatpages because you probably use flatpages
-                $('#id_content').markItUp(miu_settings);
-
-            } else if ($('#id_body').length) {
-
-                // #id_body is merely a convention because you probably want MarkItUp on a "body" field
-                $('#id_body').markItUp(miu_settings);
-
             }
         },
 
@@ -931,7 +916,6 @@ AdminPlus = (function ($) {
 
         init: function () {
             var self = this;
-            self.addMarkItUp();
             self.selectFirstSite();
             self.openViewLinkInNewWindow();
         }
