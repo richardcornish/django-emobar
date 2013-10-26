@@ -896,9 +896,7 @@ AdminPlus = (function ($) {
 
         // Add MarkItUp WYSIWYG to textareas
         addMarkItUp: function (textarea_el) {
-            if (textarea_el) {
-                $(textarea_el).markItUp(miu_settings);
-            }
+            $(textarea_el).markItUp(miu_settings);
         },
 
         // Select first site in flatpages
