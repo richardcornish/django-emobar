@@ -1,6 +1,6 @@
-var ADMIN_PLUS = window.ADMIN_PLUS || {};
+var AdminPlus = window.AdminPlus || {};
 
-ADMIN_PLUS = (function ($) {
+AdminPlus = (function ($) {
 
     'use strict';
 
@@ -942,5 +942,5 @@ ADMIN_PLUS = (function ($) {
 
 django.jQuery(function () {
     'use strict';
-    ADMIN_PLUS.init();
+    AdminPlus.init();
 });
