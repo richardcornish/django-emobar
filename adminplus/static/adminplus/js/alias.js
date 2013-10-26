@@ -1,2 +1,2 @@
-// Alias `$` and `jQuery` to django.jQuery because some external scripts rely on `$` or `jQuery` and not django.jQuery
+// Alias `django.jQuery` to `jQuery` because some external scripts rely on `jQuery` to be in the global namespace
 var jQuery = django.jQuery;
