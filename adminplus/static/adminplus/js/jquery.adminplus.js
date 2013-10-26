@@ -938,9 +938,9 @@ ADMIN_PLUS = (function ($) {
 
     };
 
-}(jQuery));
+}(django.jQuery));
 
-jQuery(function () {
+django.jQuery(function () {
     'use strict';
     ADMIN_PLUS.init();
 });
