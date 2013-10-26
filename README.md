@@ -44,9 +44,9 @@ class PostAdmin(admin.ModelAdmin):
 
     class Media:
         css = {
-            'all': ('adminplus/css/style.css',)
+            'all': ('adminplus/css/style.min.css',)
         }
-        js = ('adminplus/js/jquery.markitup.js', 'adminplus/js/jquery.adminplus.js',)
+        js = ('adminplus/js/jquery.markitup.min.js', 'adminplus/js/jquery.adminplus.min.js',)
 
 admin.site.register(Post, PostAdmin)
 ```
