@@ -13,14 +13,6 @@ Screenshot:
 
 ![Admin Plus toolbar screenshot](docs/adminplus-toolbar.png)
 
-Usage in a template after installation:
-
-```
-{% load emoji_tags %}
-
-{{ object.body|emoji }}
-```
-
 Other small and simple JavaScript enhancement added automatically:
 
 - `selectFirstSite` selects the first site listed in the Sites field of a flatpage. Nothing is selected in a typical Django installation because you could have many sites, but because most people have one site, it's annoying and silly to have to keep clicking which site you want to attach the flatpage to when it's probably the first.
@@ -54,43 +46,26 @@ class PostAdmin(admin.ModelAdmin):
         css = {
             'all': ('adminplus/css/style.css',)
         }
-        js = ('adminplus/js/jquery.min.js', 
-              'adminplus/js/jquery.markitup.js', 
-              'adminplus/js/jquery.adminplus.js',
-        )
+        js = ('adminplus/js/jquery.markitup.js', 'adminplus/js/jquery.adminplus.js',)
 
 admin.site.register(Post, PostAdmin)
 ```
 
-Note: The above is cleaner but a little more work because each app's `class Media` in `admin.py` has to be declared. This includes adding an additional flatpages app (with corresponding `admin.py`) if you want the enhancements to the flatpages app, plus adding that new flatpages app to your `INSTALLED_APPS`.
-
-You could instead hijack the admin templates and stick the HTML calls to the media there. This would actually be required for adding additional WYSIWYGs to textareas not called `body` or `content`.
+Override the admin's `change_form.html` template for the app of your choosing.
 
 ```
-# Template
-# /path/to/your/templates/admin/change_form.html
+# Inside /path/to/your/templates/admin/change_form.html
 
 {% extends "admin/change_form.html" %}
 
 {% block extrahead %}
     {{ block.super }}
-    
-    {% load adminmedia %}
-    
-    {# If you already use `class Media`, `load adminmedia` will load these below, so might not be needed #}
-    <link rel="stylesheet" href="{{ STATIC_URL }}adminplus/css/style.css">
-    <script src="{{ STATIC_URL }}adminplus/js/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}adminplus/js/jquery.markitup.js"></script>
-    <script src="{{ STATIC_URL }}adminplus/js/jquery.adminplus.js"></script>
-    
-    {# To target an additional textarea: #}
     <script>
-        jQuery(function () {
+        django.jQuery(function () {
             'use strict';
-            ADMIN_PLUS.addMarkItUp('#id_then_name_of_field_in_model');
+            AdminPlus.addMarkItUp('#id_body'); // Selector of desired textarea
         });
     </script>
-    
 {% endblock %}
 ```
 
@@ -99,9 +74,18 @@ More at:
 - [`ModelAdmin` media definitions](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#modeladmin-media-definitions)
 - [Overriding admin templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates)
 
-Run `python manage.py collectstatic` in the correct django project directory.
+Run `python manage.py collectstatic` in the correct django project directory and restart the server as necessary.
 
-Restart the server as necessary.
+
+## Usage
+
+Usage in a template after installation:
+
+```
+{% load emoji_tags %}
+
+{{ post.body|emoji }}
+```
 
 
 ## What else?
