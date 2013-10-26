@@ -21,7 +21,11 @@ Other small and simple JavaScript enhancement added automatically:
 
 ## Installation
 
-Place `adminplus` directory on Python path
+Download django-adminplus, probably with Pip via GitHub. Please replace `[virtualenvironment]` with your own. You can also git clone or download the tarball, but then remember to add the `adminplus` directory to your Python path.
+
+```
+pip install -e git+https://github.com/richardcornish/django-adminplus.git#egg=django-adminplus --src ~/.virtualenvs/[virtualenvironment]/lib/python2.7/site-packages
+```
 
 Add `adminplus` to `settings.py`'s `INSTALLED_APPS` tuple.
 
