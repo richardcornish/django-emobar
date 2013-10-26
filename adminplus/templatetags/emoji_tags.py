@@ -1,20 +1,17 @@
 from django import template
 from django.template.defaultfilters import stringfilter
-from django.conf import settings
 from django.utils.safestring import mark_safe
+from django.conf import settings
 
-from adminplus.templatetags.emoji_dict import emoji_dict
+from .templatetags.emoji_dict import emoji_dict
 
 import re
 
-
 register = template.Library()
+emoji_finder = re.compile(u':[-\w]+:')
 
 
-emoji_finder = re.compile(u':[\w]+:')
-
-
-@register.filter
+@register.filter(is_safe=True)
 @stringfilter
 def emoji(value):
     for emoji in set(emoji_finder.findall(value)):
