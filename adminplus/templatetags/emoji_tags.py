@@ -3,7 +3,7 @@ from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 from django.conf import settings
 
-from .templatetags.emoji_dict import emoji_dict
+from adminplus.templatetags.emoji_dict import emoji_dict
 
 import re
 
