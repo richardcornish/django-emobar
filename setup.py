@@ -2,14 +2,14 @@ from distutils.core import setup
 import os
 
 
-setup(name='django-adminplus',
+setup(name='django-emo',
       version='1.0',
       description='A utility to enhance the Django admin',
       author='Richard Cornish',
       author_email='rich@richardcornish.com',
-      url='hhttps://github.com/richardcornish/django-adminplus',
-      download_url='https://github.com/richardcornish/django-adminplus/archive/master.zip', 
-      packages=['adminplus'],
+      url='hhttps://github.com/richardcornish/django-emo',
+      download_url='https://github.com/richardcornish/django-emo/archive/master.zip', 
+      packages=['emo'],
       classifiers=['Development Status :: 5 - Production/Stable',
                    'Environment :: Web Environment',
                    'Framework :: Django',

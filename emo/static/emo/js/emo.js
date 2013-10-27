@@ -1,6 +1,6 @@
-var AdminPlus = window.AdminPlus || {};
+var Emo = window.Emo || {};
 
-AdminPlus = (function ($) {
+Emo = (function ($) {
 
     'use strict';
 
@@ -895,34 +895,10 @@ AdminPlus = (function ($) {
     return {
 
         // Add MarkItUp WYSIWYG to textareas
-        addMarkItUp: function (textarea_el) {
+        addToolbar: function (textarea_el) {
             $(textarea_el).markItUp(miu_settings);
-        },
-
-        // Select first site in flatpages
-        selectFirstSite: function () {
-            $('#id_sites').find('option:eq(0)').attr('selected', 'selected');
-        },
-
-        // "View on site" button opens links in a new (but same) window
-        openViewLinkInNewWindow: function () {
-            $('a.viewsitelink').click(function (e) {
-                window.open($(this).attr('href'), 'new');
-                e.preventDefault();
-            });
-        },
-
-        init: function () {
-            var self = this;
-            self.selectFirstSite();
-            self.openViewLinkInNewWindow();
         }
 
     };
 
 }(jQuery));
-
-jQuery(function () {
-    'use strict';
-    AdminPlus.init();
-});
