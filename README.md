@@ -73,7 +73,7 @@ More at:
 - [`ModelAdmin` media definitions](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#modeladmin-media-definitions)
 - [Overriding admin templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates)
 
-Run `python manage.py collectstatic` in the correct django project directory and restart the server as necessary.
+Remember to add [static file handling to your local settings](https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#static-file-development-view) or run `python manage.py collectstatic` in the correct django project directory and restart the server as necessary.
 
 
 ## Usage
