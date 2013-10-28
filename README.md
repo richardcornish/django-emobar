@@ -35,7 +35,7 @@ Append `class Media` parts to admin classes in each of your apps' `admin.py`. Ex
 
 ```
 from django.contrib import admin
-from ... import Post
+from .models import Post
 
 class PostAdmin(admin.ModelAdmin):
 
