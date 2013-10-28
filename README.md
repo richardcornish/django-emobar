@@ -1,11 +1,11 @@
 # django-emo
 
-Emo is a Django app that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a markdown WYSIWYG for textareas.
+Emo is a Django app that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a Markdown and emoji [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
 
 
 ## Features
 
-Emo uses the [markItUp](http://markitup.jaysalvat.com/home/) toolbar for adding [Markdown](http://daringfireball.net/projects/markdown/) to textareas. It uses a (mostly) unique skin to the toolbar that complements the minimalism of the admin.
+Emo uses the [markItUp](http://markitup.jaysalvat.com/home/) toolbar for adding [Markdown](http://daringfireball.net/projects/markdown/) to textareas. Its toolbar is themed to complement the minimalism of the admin.
 
 The toolbar's [emoji](http://en.wikipedia.org/wiki/Emoji) use the Apple iOS emoji image set. Although emoji became a Unicode standard, some browsers (ahem, Chrome) still do not support the emoji HTML entities. Emo instead uses the [GitHub-flavored Markdown codes](http://www.emoji-cheat-sheet.com/) and a filter to replace the emoji text codes with their respective image equivalents.
 
@@ -53,7 +53,7 @@ admin.site.register(Post, PostAdmin)
 Override the admin's `change_form.html` template for the app of your choosing.
 
 ```
-# Inside /path/to/your/templates/admin/change_form.html
+# Inside blog/templates/admin/blog/post/change_form.html
 
 {% extends "admin/change_form.html" %}
 
@@ -86,9 +86,14 @@ Usage in a template after installation:
 {{ post.body|emoji }}
 ```
 
+Note that the [`django.contrib.markup`](https://docs.djangoproject.com/en/1.5/ref/contrib/markup/) module has been deprecated since Django 1.5 and that a textarea using Markdown will not render HTML. Assuming you either [bring back the module](https://github.com/django/django/blob/1.5/django/contrib/markup/templatetags/markup.py) or you install a third-party Markdown solution, the template would probably more closely resemble:
+
+```
+{% load markup emoji_tags %}
+
+{{ post.body|markdown|emoji }}
+```
 
 ## What else?
-
-If there is an easier way to accomplish installation (perhaps avoiding `class Media`?), do let me know.
 
 File an issue or pull request with ideas for things you would like to see.
