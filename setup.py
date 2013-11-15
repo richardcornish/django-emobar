@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(name='django-emo',
       version='1.0',
-      description='A utility to enhance the Django admin',
+      description='Emo is a Django app that enhances the admin with a markdown and emoji WYSIWYG for textareas.',
       author='Richard Cornish',
       author_email='rich@richardcornish.com',
       url='https://github.com/richardcornish/django-emo',
