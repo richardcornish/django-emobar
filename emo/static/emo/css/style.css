@@ -4,7 +4,7 @@
 .markItUp ul { *zoom: 1; }
 
 .markItUp .markItUpSeparator { overflow: hidden; margin: 3px 6px 0 6px; padding: 0; width: 1px; height: 16px; background-color: #ccc; text-indent: -10000px; }
-.markItUpEditor { margin-left: 9.7em; }
+.markItUpEditor { margin-left: 9em; }
 
 /* First-level menu */
 .markItUp ul, .markItUp li { margin: 0; padding: 0; list-style: none; }
