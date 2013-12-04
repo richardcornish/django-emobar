@@ -1,11 +1,11 @@
 # django-emo
 
-Emo is a Django app that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a Markdown and emoji [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
+Emo is a Django app that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a [Markdown](http://daringfireball.net/projects/markdown/) and emoji [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
 
 
 ## Features
 
-Emo uses the [markItUp](http://markitup.jaysalvat.com/home/) toolbar for adding [Markdown](http://daringfireball.net/projects/markdown/) to textareas. Its toolbar is themed to complement the minimalism of the admin.
+Emo uses the [markItUp](http://markitup.jaysalvat.com/home/) toolbar for adding Markdown to textareas. Its toolbar is themed to complement the minimalism of the admin.
 
 The toolbar's [emoji](http://en.wikipedia.org/wiki/Emoji) use the Apple iOS emoji image set. Although emoji became a Unicode standard, some browsers (ahem, Chrome) still do not support the emoji HTML entities. Emo instead uses the [GitHub-flavored Markdown codes](http://www.emoji-cheat-sheet.com/) and a filter to replace the emoji text codes with their respective image equivalents.
 
