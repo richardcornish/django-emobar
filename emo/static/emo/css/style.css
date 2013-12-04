@@ -3,13 +3,13 @@
 .markItUp ul:after { clear: both; }
 .markItUp ul { *zoom: 1; }
 
-.markItUp .markItUpSeparator { overflow: hidden; margin: 3px 6px 0 6px; padding: 0; width: 1px; height: 16px; background-color: #ccc; text-indent: -10000px; }
+.markItUp .markItUpSeparator { overflow: hidden; margin: 3px 6px 0 6px; padding: 0; width: 1px; height: 16px; background-color: #ccc; text-indent: -10000px; direction: ltr; }
 .markItUpEditor { margin-left: 9.7em; }
 
 /* First-level menu */
 .markItUp ul, .markItUp li { margin: 0; padding: 0; list-style: none; }
 .markItUp ul li { float: left; padding: 3px; }
-.markItUp ul li a { display: block; margin: 0; width: 16px; height: 16px; background-image: url(../img/wysiwyg-toolbar.png); background-repeat: no-repeat; text-indent: -10000px; }
+.markItUp ul li a { display: block; margin: 0; width: 16px; height: 16px; background-image: url(../img/wysiwyg-toolbar.png); background-repeat: no-repeat; text-indent: -10000px; direction: ltr; }
 .markItUp .markItUpButton1 a { background-position: 0 0; }
 .markItUp .markItUpButton2 a { background-position: -16px 0; }
 .markItUp .markItUpButton3 a { background-position: -32px 0; }
