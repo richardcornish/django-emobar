@@ -1,13 +1,13 @@
-# django-emo
+# Emo
 
-**Emo** is a Django app that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a [Markdown](http://daringfireball.net/projects/markdown/) and emoji [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
+**Emo** is a [Django](http://www.djangoproject.com/) template filter that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a [Markdown](http://daringfireball.net/projects/markdown/) and [emoji](http://en.wikipedia.org/wiki/Emoji) enhanced [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
 
 
 ## Features
 
 Emo uses the [markItUp](http://markitup.jaysalvat.com/home/) toolbar for adding Markdown to textareas. Its toolbar is themed to complement the minimalism of the admin.
 
-The toolbar's [emoji](http://en.wikipedia.org/wiki/Emoji) use the Apple iOS emoji image set. Although emoji became a Unicode standard, some browsers (ahem, Chrome) still do not support the emoji HTML entities. Emo instead uses the [GitHub-flavored Markdown codes](http://www.emoji-cheat-sheet.com/) and a filter to replace the emoji text codes with their respective image equivalents.
+The toolbar's emoji icons use the Apple iOS emoji icon set. Although emoji became a [Unicode standard](http://www.fileformat.info/info/unicode/block/miscellaneous_symbols_and_pictographs/images.htm), some browsers (ahem, Chrome) still do not support the emoji HTML entities. Emo instead uses the [GitHub-flavored Markdown codes](http://www.emoji-cheat-sheet.com/) and a filter to replace the emoji text codes with their respective image equivalents.
 
 Screenshot:
 
@@ -16,19 +16,30 @@ Screenshot:
 
 ## Installation
 
-Download django-emo, probably with [Pip](http://www.pip-installer.org/) via GitHub. Please replace `[virtualenvironment]` with your own. You can also git clone or download the tarball, but then remember to add the `emo` directory to your Python path.
+The cleaner (but more laborious) way to install is with [Virtualenv](http://www.virtualenv.org/), [Pip](http://www.pip-installer.org/), and [Git](http://git-scm.com/). After having already run workon to activate the environment:
 
 ```
-pip install -e git+https://github.com/richardcornish/django-emo.git#egg=django-emo --src ~/.virtualenvs/[virtualenvironment]/lib/python2.7/site-packages
+pip install -e git+https://github.com/richardcornish/django-emo.git#egg=django-emo
 ```
 
-Add `emo` to `settings.py`'s `INSTALLED_APPS` tuple.
+Remember to add it to your requirements.txt file. In your top-level directory:
 
 ```
-INSTALLED_APPS = {
-    # ...
+pip freeze > requirements.txt
+```
+
+The faster (but dirtier) way is to clone the Git repository, placing the `emo` directory on your Python path. You'll probably run the command in the directory that contains your other Django apps. [Downloading the ZIP file](https://github.com/richardcornish/django-emo/archive/master.zip) and extracting the directory into place is a similar method.
+
+```
+git clone git@github.com:richardcornish/django-emo.git
+```
+
+Then edit your `settings.py`:
+
+```
+INSTALLED_APPS = (
     'emo',
-}
+)
 ```
 
 Append `class Media` parts to admin classes in each of your apps' `admin.py`. Example:
@@ -78,7 +89,7 @@ Remember to add [static file handling to your local settings](https://docs.djang
 
 ## Usage
 
-Usage in a template after installation:
+Load the template tag in your template. Run it on an attribute of a variable:
 
 ```
 {% load emoji_tags %}
@@ -93,7 +104,3 @@ Note that the [`django.contrib.markup`](https://docs.djangoproject.com/en/1.5/re
 
 {{ post.body|markdown|emoji }}
 ```
-
-## What else?
-
-File an issue or pull request with ideas for things you would like to see.
