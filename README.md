@@ -1,6 +1,6 @@
 # django-emo
 
-Emo is a Django app that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a [Markdown](http://daringfireball.net/projects/markdown/) and emoji [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
+**Emo** is a Django app that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a [Markdown](http://daringfireball.net/projects/markdown/) and emoji [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
 
 
 ## Features
