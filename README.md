@@ -11,7 +11,7 @@ The toolbar's emoji icons use the Apple iOS emoji icon set. Although emoji becam
 
 Screenshot:
 
-![Emo toolbar screenshot](docs/emo-toolbar.png)
+![Emo toolbar screenshot](screenshots/emo-toolbar.png)
 
 
 ## Installation
