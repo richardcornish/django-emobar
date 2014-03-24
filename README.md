@@ -92,15 +92,15 @@ Remember to add [static file handling to your local settings](https://docs.djang
 Load the template tag in your template. Run it on an attribute of a variable:
 
 ```
-{% load emoji_tags %}
+{% load emo_tags %}
 
-{{ post.body|emoji }}
+{{ post.body|emo }}
 ```
 
 Note that the [`django.contrib.markup`](https://docs.djangoproject.com/en/1.5/ref/contrib/markup/) module has been deprecated since Django 1.5 and that a textarea using Markdown will not render HTML. Assuming you either [bring back the module](https://github.com/django/django/blob/1.5/django/contrib/markup/templatetags/markup.py) or you install a third-party Markdown solution, the template would probably more closely resemble:
 
 ```
-{% load markup emoji_tags %}
+{% load markup emo_tags %}
 
-{{ post.body|markdown|emoji }}
+{{ post.body|markdown|emo }}
 ```

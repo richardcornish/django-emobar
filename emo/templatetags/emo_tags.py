@@ -13,7 +13,7 @@ emoji_finder = re.compile(u':[-\w]+:')
 
 @register.filter(is_safe=True)
 @stringfilter
-def emoji(value):
+def emo(value):
     for emoji in set(emoji_finder.findall(value)):
         if emoji in emoji_dict:
             value = value.replace(emoji, u'<span class="emoji"><img src="' + settings.STATIC_URL + 'emo/img/%s" height="22" width="22" alt="%s"></span>' % (emoji_dict[emoji], emoji[1:-1]))
