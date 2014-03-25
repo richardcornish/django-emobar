@@ -16,7 +16,7 @@ Screenshot:
 
 ## Installation
 
-The cleaner (but more laborious) way to install is with [Virtualenv](http://www.virtualenv.org/), [Pip](http://www.pip-installer.org/), and [Git](http://git-scm.com/). After having already run workon to activate the environment:
+[Install](https://docs.djangoproject.com/en/dev/intro/install/) Django. The cleaner (but more laborious) way to install is with [Virtualenv](http://www.virtualenv.org/), [Pip](http://www.pip-installer.org/), and [Git](http://git-scm.com/). After having already run [`workon`](http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html?highlight=workon#workon) to activate the environment:
 
 ```
 pip install -e git+https://github.com/richardcornish/django-emo.git#egg=django-emo
