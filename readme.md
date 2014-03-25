@@ -34,7 +34,7 @@ The faster (but dirtier) way is to clone the Git repository, placing the `emo` d
 git clone git@github.com:richardcornish/django-emo.git
 ```
 
-Then edit your `settings.py`:
+Edit your `settings.py`:
 
 ```
 INSTALLED_APPS = (
