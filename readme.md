@@ -86,9 +86,7 @@ More at:
 - [`ModelAdmin` media definitions](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#modeladmin-media-definitions)
 - [Overriding admin templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates)
 
-Remember to add [static file handling to your local settings](https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#static-file-development-view) or run `python manage.py collectstatic` in the correct django project directory and restart the server as necessary.
-
-Restart the web server.
+Remember to add [static file handling to your local settings](https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#static-file-development-view) or run `python manage.py collectstatic` in the correct django project directory live and restart the server as necessary.
 
 
 ## Usage
@@ -101,7 +99,7 @@ Load the template tag in your template. Run it on an attribute of a variable:
 {{ post.body|emo }}
 ```
 
-Note that the [`django.contrib.markup`](https://docs.djangoproject.com/en/1.5/ref/contrib/markup/) module has been deprecated since Django 1.5 and that a textarea using Markdown will not render HTML. Assuming you either [bring back the module](https://github.com/django/django/blob/1.5/django/contrib/markup/templatetags/markup.py) or you install a third-party Markdown solution, the template would probably more closely resemble:
+Note that the [`django.contrib.markup`](https://docs.djangoproject.com/en/1.5/ref/contrib/markup/) module has been deprecated since Django 1.5 and that a textarea using Markdown will not render HTML. Assuming you either [bring back the module](https://github.com/django/django/blob/1.5/django/contrib/markup/templatetags/markup.py) or you install a [third-party Markdown solution](https://pypi.python.org/pypi/django-markup-deprecated), and add the package to your `INSTALLED_APPS`, the template would probably more closely resemble:
 
 ```
 {% load markup emo_tags %}
