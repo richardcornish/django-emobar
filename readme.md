@@ -1,6 +1,6 @@
 # Emo
 
-**Emo** is a [Django](http://www.djangoproject.com/) template filter that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a [Markdown](http://daringfireball.net/projects/markdown/) and [emoji](http://en.wikipedia.org/wiki/Emoji) enhanced [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
+**Emo** is a [Django](http://www.djangoproject.com/) [template filter](https://docs.djangoproject.com/en/dev/howto/custom-template-tags/) that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a [Markdown](http://daringfireball.net/projects/markdown/) and [emoji](http://en.wikipedia.org/wiki/Emoji) enhanced [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
 
 
 ## Features
@@ -16,7 +16,7 @@ Screenshot:
 
 ## Installation
 
-[Install](https://docs.djangoproject.com/en/dev/intro/install/) Django. The cleaner (but more laborious) way to install is with [Virtualenv](http://www.virtualenv.org/), [Pip](http://www.pip-installer.org/), and [Git](http://git-scm.com/). After having already run [`workon`](http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html?highlight=workon#workon) to activate the environment:
+[Install](https://docs.djangoproject.com/en/dev/intro/install/) Django. The cleaner (but more laborious) way to install is with [Pip](http://www.pip-installer.org/), [Virtualenv](http://www.virtualenv.org/), and [Virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/). After having already run [`workon`](http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html?highlight=workon#workon) to activate the environment:
 
 ```
 pip install -e git+https://github.com/richardcornish/django-emo.git#egg=django-emo
@@ -28,11 +28,13 @@ Remember to add it to your requirements.txt file. In your top-level directory:
 pip freeze > requirements.txt
 ```
 
-The faster (but dirtier) way is to clone the Git repository, placing the `emo` directory on your Python path. You'll probably run the command in the directory that contains your other Django apps. [Downloading the ZIP file](https://github.com/richardcornish/django-emo/archive/master.zip) and extracting the directory into place is a similar method.
+The faster (but dirtier) way is to clone the [Git](http://git-scm.com/) repository, placing the `emo` directory on your Python path. You'll probably run the command in the directory that contains your other Django apps.
 
 ```
 git clone git@github.com:richardcornish/django-emo.git
 ```
+
+[Downloading the ZIP file](https://github.com/richardcornish/django-emo/archive/master.zip) and extracting the directory into place also works but makes updating more difficult.
 
 Edit your `settings.py`:
 
@@ -85,6 +87,8 @@ More at:
 - [Overriding admin templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates)
 
 Remember to add [static file handling to your local settings](https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#static-file-development-view) or run `python manage.py collectstatic` in the correct django project directory and restart the server as necessary.
+
+Restart the web server.
 
 
 ## Usage
