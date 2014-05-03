@@ -31,7 +31,7 @@ pip freeze > requirements.txt
 The faster (but dirtier) way is to clone the [Git](http://git-scm.com/) repository, placing the `emo` directory on your Python path. You'll probably run the command in the directory that contains your other Django apps.
 
 ```
-git clone git@github.com:richardcornish/django-emo.git
+git clone https://github.com/richardcornish/django-emo.git
 ```
 
 [Downloading the ZIP file](https://github.com/richardcornish/django-emo/archive/master.zip) and extracting the directory into place also works but makes updating more difficult.
