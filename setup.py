@@ -1,7 +1,8 @@
 from distutils.core import setup
 
 
-setup(name='django-emo',
+setup(
+      name='django-emo',
       version='0.1',
       description='Emo is a Django app that enhances the admin with a markdown and emoji WYSIWYG for textareas.',
       author='Richard Cornish',
