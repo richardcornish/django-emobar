@@ -33,27 +33,26 @@
             params = extraSettings;
         } 
 
-        options = { id:                     '',
-                    nameSpace:              '',
-                    root:                   '',
-                    previewHandler:         false,
+        options = {    id:                        '',
+                    nameSpace:                '',
+                    root:                    '',
+                    previewHandler:            false,
                     previewInWindow:        '', // 'width=800, height=600, resizable=yes, scrollbars=yes'
-                    previewInElement:       '',
-                    previewAutoRefresh:     true,
+                    previewInElement:        '',
+                    previewAutoRefresh:        true,
                     previewPosition:        'after',
                     previewTemplatePath:    '~/templates/preview.html',
-                    previewParser:          false,
-                    previewParserPath:      '',
-                    previewParserVar:       'data',
-                    previewParserAjaxType:  'POST',
-                    resizeHandle:           true,
-                    beforeInsert:           '',
+                    previewParser:            false,
+                    previewParserPath:        '',
+                    previewParserVar:        'data',
+                    resizeHandle:            true,
+                    beforeInsert:            '',
                     afterInsert:            '',
                     onEnter:                {},
-                    onShiftEnter:           {},
+                    onShiftEnter:            {},
                     onCtrlEnter:            {},
-                    onTab:                  {},
-                    markupSet:          [   { /* set */ } ]
+                    onTab:                    {},
+                    markupSet:            [    { /* set */ } ]
                 };
         $.extend(options, settings, extraSettings);
 
@@ -126,9 +125,9 @@
             // apply the computed path to ~/
             function localize(data, inText) {
                 if (inText) {
-                    return  data.replace(/("|')~\//g, "$1"+options.root);
+                    return     data.replace(/("|')~\//g, "$1"+options.root);
                 }
-                return  data.replace(/^~\//, options.root);
+                return     data.replace(/^~\//, options.root);
             }
 
             // init and build editor
@@ -203,7 +202,7 @@
                 $('li:hover > ul', ul).css('display', 'block');
                 $.each(markupSet, function() {
                     var button = this, t = '', title, li, j;
-                    button.title ? title = (button.key) ? (button.title||'')+' [Ctrl+'+button.key+']' : (button.title||'') : title = (button.key) ? (button.name||'')+' [Ctrl+'+button.key+']' : (button.name||'');
+                    title = (button.key) ? (button.name||'')+' [Ctrl+'+button.key+']' : (button.name||'');
                     key   = (button.key) ? 'accesskey="'+button.key+'"' : '';
                     if (button.separator) {
                         li = $('<li class="markItUpSeparator">'+(button.separator||'')+'</li>').appendTo(ul);
@@ -287,13 +286,13 @@
 
             // build block to insert
             function build(string) {
-                var openWith            = prepare(clicked.openWith);
+                var openWith             = prepare(clicked.openWith);
                 var placeHolder         = prepare(clicked.placeHolder);
                 var replaceWith         = prepare(clicked.replaceWith);
-                var closeWith           = prepare(clicked.closeWith);
-                var openBlockWith       = prepare(clicked.openBlockWith);
-                var closeBlockWith      = prepare(clicked.closeBlockWith);
-                var multiline           = clicked.multiline;
+                var closeWith             = prepare(clicked.closeWith);
+                var openBlockWith         = prepare(clicked.openBlockWith);
+                var closeBlockWith         = prepare(clicked.closeBlockWith);
+                var multiline             = clicked.multiline;
                 
                 if (replaceWith !== "") {
                     block = openWith + replaceWith + closeWith;
@@ -339,7 +338,7 @@
                 hash = clicked = button;
                 get();
                 $.extend(hash, {    line:"", 
-                                    root:options.root,
+                                     root:options.root,
                                     textarea:textarea, 
                                     selection:(selection||''), 
                                     caretPosition:caretPosition,
@@ -353,7 +352,7 @@
                 prepare(clicked.beforeInsert);
                 if ((ctrlKey === true && shiftKey === true) || button.multiline === true) {
                     prepare(clicked.beforeMultiInsert);
-                }           
+                }            
                 $.extend(hash, { line:1 });
 
                 if ((ctrlKey === true && shiftKey === true)) {
@@ -512,7 +511,7 @@
                             iFrame.insertAfter(footer);
                         } else {
                             iFrame.insertBefore(header);
-                        }   
+                        }    
                         previewWindow = iFrame[iFrame.length - 1].contentWindow || frame[iFrame.length - 1];
                     }
                 } else if (altKey === true) {
@@ -533,7 +532,7 @@
 
             // refresh Preview window
             function refreshPreview() {
-                renderPreview();
+                 renderPreview();
             }
 
             function renderPreview() {
@@ -545,7 +544,7 @@
                     writeInPreview(localize(data, 1) ); 
                 } else if (options.previewParserPath !== '') {
                     $.ajax({
-                        type: options.previewParserAjaxType,
+                        type: 'POST',
                         dataType: 'text',
                         global: false,
                         url: options.previewParserPath,
@@ -572,12 +571,12 @@
             function writeInPreview(data) {
                 if (options.previewInElement) {
                     $(options.previewInElement).html(data);
-                } else if (previewWindow && previewWindow.document) {           
+                } else if (previewWindow && previewWindow.document) {            
                     try {
                         sp = previewWindow.document.documentElement.scrollTop
                     } catch(e) {
                         sp = 0;
-                    }   
+                    }    
                     previewWindow.document.open();
                     previewWindow.document.write(data);
                     previewWindow.document.close();
@@ -637,12 +636,6 @@
             function remove() {
                 $$.unbind(".markItUp").removeClass('markItUpEditor');
                 $$.parent('div').parent('div.markItUp').parent('div').replaceWith($$);
-
-                var relativeRef = $$.parent('div').parent('div.markItUp').parent('div');
-                if (relativeRef.length) {
-                    relativeRef.replaceWith($$);
-                }
-                
                 $$.data('markItUp', null);
             }
 
