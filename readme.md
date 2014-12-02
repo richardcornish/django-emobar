@@ -1,6 +1,8 @@
 # Emo
 
-**Emo** is a [Django](http://www.djangoproject.com/) [template filter](https://docs.djangoproject.com/en/dev/howto/custom-template-tags/) that enhances the [admin](https://docs.djangoproject.com/en/1.5/intro/tutorial02/) with a [Markdown](http://daringfireball.net/projects/markdown/) and [emoji](http://en.wikipedia.org/wiki/Emoji) enhanced [WYSIWYG](http://en.wikipedia.org/wiki/WYSIWYG) for textareas.
+**Emo** is a [Django](https://www.djangoproject.com/) [app](https://docs.djangoproject.com/en/1.5/intro/reusable-apps/) and [template filter](https://docs.djangoproject.com/en/dev/howto/custom-template-tags/) that enhances the [admin](https://docs.djangoproject.com/en/1.5/ref/contrib/admin/)'s textareas with a [Markdown](http://daringfireball.net/projects/markdown/)-[emoji](http://en.wikipedia.org/wiki/Emoji) enhanced toolbar.
+
+![Emo toolbar screenshot](screenshots/emo-toolbar.png)
 
 
 ## Features
@@ -9,32 +11,20 @@ Emo uses the [markItUp](http://markitup.jaysalvat.com/home/) toolbar for adding 
 
 The toolbar's emoji icons use the Apple iOS emoji icon set. Although emoji became a [Unicode standard](http://www.fileformat.info/info/unicode/block/miscellaneous_symbols_and_pictographs/images.htm), some browsers (ahem, Chrome) still do not support the emoji HTML entities. Emo instead uses the [GitHub-flavored Markdown codes](http://www.emoji-cheat-sheet.com/) and a filter to replace the emoji text codes with their respective image equivalents.
 
-Screenshot:
-
-![Emo toolbar screenshot](screenshots/emo-toolbar.png)
-
 
 ## Installation
 
-[Install](https://docs.djangoproject.com/en/dev/intro/install/) Django. The cleaner (but more laborious) way to install is with [Pip](http://www.pip-installer.org/), [Virtualenv](http://www.virtualenv.org/), and [Virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/). After having already run [`workon`](http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html?highlight=workon#workon) to activate the environment:
+Install it with the [pip](http://www.pip-installer.org/) package manager.
 
 ```
 pip install -e git+https://github.com/richardcornish/django-emo.git#egg=django-emo
 ```
 
-Remember to add it to your requirements.txt file. In your top-level directory:
+Remember to update to your requirements.txt file. In your project directory:
 
 ```
 pip freeze > requirements.txt
 ```
-
-The faster (but dirtier) way is to clone the [Git](http://git-scm.com/) repository, placing the `emo` directory on your Python path. You'll probably run the command in the directory that contains your other Django apps.
-
-```
-git clone https://github.com/richardcornish/django-emo.git
-```
-
-[Downloading the ZIP file](https://github.com/richardcornish/django-emo/archive/master.zip) and extracting the directory into place also works but makes updating more difficult.
 
 Edit your `settings.py`:
 
@@ -58,7 +48,7 @@ class PostAdmin(admin.ModelAdmin):
         css = {
             'all': ('emo/css/style.min.css',)
         }
-        js = ('emo/js/alias.js', 'emo/js/markitup.js', 'emo/js/emo.js',)
+        js = ('emo/js/alias.min.js', 'emo/js/markitup.min.js', 'emo/js/emo.min.js',)
 
 admin.site.register(Post, PostAdmin)
 ```
@@ -66,7 +56,7 @@ admin.site.register(Post, PostAdmin)
 Override the admin's `change_form.html` template for the app of your choosing.
 
 ```
-# Inside blog/templates/admin/blog/post/change_form.html
+<!-- blog/templates/admin/blog/post/change_form.html -->
 
 {% extends "admin/change_form.html" %}
 
@@ -83,7 +73,7 @@ Override the admin's `change_form.html` template for the app of your choosing.
 
 More at:
 
-- [`ModelAdmin` media definitions](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#modeladmin-media-definitions)
+- [`ModelAdmin` media definitions](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#modeladmin-asset-definitions)
 - [Overriding admin templates](https://docs.djangoproject.com/en/dev/ref/contrib/admin/#overriding-admin-templates)
 
 Remember to add [static file handling to your local settings](https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#static-file-development-view) or run `python manage.py collectstatic` in the correct django project directory live and restart the server as necessary.
