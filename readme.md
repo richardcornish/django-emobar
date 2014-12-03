@@ -30,6 +30,7 @@ Edit your `settings.py`:
 
 ```
 INSTALLED_APPS = (
+    # ...
     'emo',
 )
 ```
