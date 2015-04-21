@@ -97,3 +97,5 @@ Note that the [`django.contrib.markup`](https://docs.djangoproject.com/en/1.5/re
 
 {{ post.body|markdown|emo }}
 ```
+
+If you do copy the old `markup.py` module, please alter the last section of the source by including the [security update](https://www.djangoproject.com/weblog/2015/apr/21/docutils-security-advisory/).
