@@ -20,7 +20,7 @@ Install it with the [pip](http://www.pip-installer.org/) package manager.
 pip install -e git+https://github.com/richardcornish/django-emo.git#egg=django-emo
 ```
 
-Remember to update to your requirements.txt file. In your project directory:
+Remember to update to your `requirements.txt` file. In your project directory:
 
 ```
 pip freeze > requirements.txt
